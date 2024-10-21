@@ -1,15 +1,19 @@
 package praktikum.client;
 
+import io.qameta.allure.Param;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.model.Parameter;
 import io.restassured.response.Response;
 import praktikum.EnvConfig;
+
+import static io.qameta.allure.model.Parameter.Mode.HIDDEN;
 
 public class ClientEnvConfig extends EnvConfig {
 
     @Step("Send DELETE request to api/auth/user")
     @DisplayName("Delete a client")
-    public void deleteClient(String token) {
+    public void deleteClient(@Param(mode = HIDDEN) String token) {
         deleteClientSpec(token);
     }
 
