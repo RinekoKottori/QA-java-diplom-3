@@ -23,7 +23,7 @@ public class PersonalAccountPageTest {
     @Before
     public void setUp() {
         driver = factory.getDriver();
-        new PersonalAccountPage(driver).openDriver();
+        new PersonalAccountPage(driver).openBrowser();
         ClientEnvConfig clientEnvConfig = new ClientEnvConfig();
         response = clientEnvConfig.registrationNewClient("atrofiya", "atrofiya@yaya.com", "krak476");
     }

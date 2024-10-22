@@ -28,7 +28,7 @@ public class MainPage {
     }
 
     @Step("Open browser")
-    public void openDriver() {
+    public void openBrowser() {
         open(BASE_URL);
     }
 
