@@ -29,12 +29,7 @@ mvn clean test -Dbrowser=chrome
 
 ## Запуск для yandex browser
 ```bash
-изменить путь до yandex.exe в классе DriverRule в методе initYandex, строка 53
 mvn clean test -Dbrowser=yandex
-
-альтернативный вариант:
-перейти в cmd ввести: cd путь до проекта
-mvn clean test -Dbrowser=yandex -Ddriver.version=126.0.6478.182 -Dwebdriver.yandex.bin= путь до /yandex.exe
 ```
 
 ## Запуск для firefox browser

@@ -1,5 +1,6 @@
 package praktikum;
 
+import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.rules.ExternalResource;
 import org.openqa.selenium.WebDriver;
@@ -34,6 +35,7 @@ public class DriverRule extends ExternalResource {
         else {
             initChrome();
         }
+        WebDriverRunner.setWebDriver(driver);
     }
 
     private void initFirefox() {
@@ -47,7 +49,7 @@ public class DriverRule extends ExternalResource {
     }
 
     private void initYandex() {
-        WebDriverManager.chromedriver().driverVersion("126.0.6478.182").setup();
+        WebDriverManager.chromedriver().driverVersion("126.0.6478.0").setup();
 
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Users\\kuzne\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
