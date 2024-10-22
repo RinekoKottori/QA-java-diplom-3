@@ -30,6 +30,8 @@ mvn clean test -Dbrowser=chrome
 ## Запуск для yandex browser
 ```bash
 mvn clean test -Dbrowser=yandex
+
+mvn clean test -Dbrowser=yandex -Ddriver.version=version of yandex browser -Dwebdriver.yandex.bin=path to browser
 ```
 
 ## Запуск для firefox browser

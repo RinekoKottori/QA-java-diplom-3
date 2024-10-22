@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverRule extends ExternalResource {
     private WebDriver driver;
@@ -31,8 +30,7 @@ public class DriverRule extends ExternalResource {
             initFirefox();
         } else if ("yandex".equals(System.getProperty("browser"))) {
             initYandex();
-        }
-        else {
+        } else {
             initChrome();
         }
         WebDriverRunner.setWebDriver(driver);

@@ -23,7 +23,7 @@ public class PersonalAccountPage {
     }
 
     @Step("Open browser")
-    public void openDriver() {
+    public void openBrowser() {
         open(BASE_URL);
     }
 

@@ -41,17 +41,17 @@ public class Client {
         this.name = name;
     }
 
-    public Client(String password){
+    public Client(String password) {
         this.password = password;
     }
 
     //создание уникального пользователя;
     public static Client randomClient() {
-        return new Client("Beni Johnson", "Brat" + RandomStringUtils.randomAlphanumeric(2, 11) + "@ya.com", "dva" + RandomStringUtils.randomAlphanumeric(3, 11) );
+        return new Client("Beni Johnson", "Brat" + RandomStringUtils.randomAlphanumeric(2, 11) + "@ya.com", "dva" + RandomStringUtils.randomAlphanumeric(3, 11));
     }
 
-    public static Client randomClientIncorrectPassword(){
-        return new Client(RandomStringUtils.randomAlphabetic(1,5));
+    public static Client randomClientIncorrectPassword() {
+        return new Client(RandomStringUtils.randomAlphabetic(1, 5));
     }
 
 }

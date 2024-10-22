@@ -28,8 +28,8 @@ public class RegistrationPage {
         this.driver = driver;
     }
 
-    @Step("open browser")
-    public void openDriver() {
+    @Step("Open browser")
+    public void openBrowser() {
         open(BASE_URL);
     }
 

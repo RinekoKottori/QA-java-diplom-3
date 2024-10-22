@@ -52,7 +52,7 @@ public class PositiveRegistrationTest {
 
     @Test
     @DisplayName("Test positive registration")
-    public void registrationClient(){
+    public void registrationClient() {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.setName(name);
         registrationPage.setEmail(email);
@@ -70,7 +70,7 @@ public class PositiveRegistrationTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         CheckClient checkClient = new CheckClient();
         ClientEnvConfig clientEnvConfig = new ClientEnvConfig();
         Response response = clientEnvConfig.authorizationClient(email, password);

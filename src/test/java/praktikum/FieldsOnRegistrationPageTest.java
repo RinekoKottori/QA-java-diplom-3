@@ -20,7 +20,7 @@ public class FieldsOnRegistrationPageTest {
     @BeforeClass
     public static void setUp() {
         driver = factory.getDriver();
-        new RegistrationPage(driver).openDriver();
+        new RegistrationPage(driver).openBrowser();
         new MainPage(driver).clickOnButtonSignInAccount();
         new AuthorizationPage(driver).clickOnRegistrationLink();
     }

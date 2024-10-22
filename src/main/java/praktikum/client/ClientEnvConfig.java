@@ -3,7 +3,6 @@ package praktikum.client;
 import io.qameta.allure.Param;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
-import io.qameta.allure.model.Parameter;
 import io.restassured.response.Response;
 import praktikum.EnvConfig;
 

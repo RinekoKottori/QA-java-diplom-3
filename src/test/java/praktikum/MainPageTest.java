@@ -2,7 +2,9 @@ package praktikum;
 
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import praktikum.client.CheckClient;
 import praktikum.client.ClientEnvConfig;
@@ -16,12 +18,12 @@ public class MainPageTest {
     Response response;
 
     @Rule
-    public  DriverRule factory = new DriverRule();
+    public DriverRule factory = new DriverRule();
 
     @Before
     public void setUp() {
         driver = factory.getDriver();
-        new MainPage(driver).openDriver();
+        new MainPage(driver).openBrowser();
     }
 
 
@@ -36,7 +38,7 @@ public class MainPageTest {
 
     @Test
     @DisplayName("Test button Personal account with authorization")
-    public void checkPersonalAccountButtonWithAuth(){
+    public void checkPersonalAccountButtonWithAuth() {
         ClientEnvConfig clientEnvConfig = new ClientEnvConfig();
         response = clientEnvConfig.registrationNewClient("atrofiya", "atrofiya@yaya.com", "krak476");
         MainPage mainPage = new MainPage(driver);
@@ -57,7 +59,7 @@ public class MainPageTest {
 
     @Test
     @DisplayName("Test sauce section can be selected")
-    public void checkSectionSauce(){
+    public void checkSectionSauce() {
         MainPage mainPage = new MainPage(driver);
         mainPage.selectSauceSection();
         mainPage.isSauceSectionSelected();
@@ -65,7 +67,7 @@ public class MainPageTest {
 
     @Test
     @DisplayName("Test bun section can be selected")
-    public void checkSectionBun(){
+    public void checkSectionBun() {
         MainPage mainPage = new MainPage(driver);
         mainPage.selectBunSection();
         mainPage.isBunSectionSelected();
@@ -73,7 +75,7 @@ public class MainPageTest {
 
     @Test
     @DisplayName("Test main section can be selected")
-    public void checkSectionMain(){
+    public void checkSectionMain() {
         MainPage mainPage = new MainPage(driver);
         mainPage.selectMainSection();
         mainPage.isMainSectionSelected();

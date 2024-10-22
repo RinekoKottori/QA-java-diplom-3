@@ -18,7 +18,7 @@ public class SignInButtonsTest {
     @BeforeClass
     public static void setUp() {
         driver = factory.getDriver();
-        new MainPage(driver).openDriver();
+        new MainPage(driver).openBrowser();
     }
 
     @Test
