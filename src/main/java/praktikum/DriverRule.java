@@ -6,10 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.time.Duration;
-
-import static praktikum.EnvConfig.IMPLICIT_WAIT;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverRule extends ExternalResource {
     private WebDriver driver;
@@ -19,7 +16,7 @@ public class DriverRule extends ExternalResource {
     }
 
     @Override
-    protected void before() {
+    protected void before() throws Throwable {
         initDriver();
     }
 
@@ -29,24 +26,32 @@ public class DriverRule extends ExternalResource {
     }
 
     public void initDriver() {
-        if ("yandex".equals(System.getProperty("browser"))) {
-            startYandex();
-        } else {
-            startChrome();
+        if ("firefox".equals(System.getProperty("browser"))) {
+            initFirefox();
+        } else if ("yandex".equals(System.getProperty("browser"))) {
+            initYandex();
+        }
+        else {
+            initChrome();
         }
     }
 
-    public void startChrome() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT));
+    private void initFirefox() {
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
     }
 
-    public void startYandex() {
+    private void initChrome() {
         WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+    }
+
+    private void initYandex() {
+        WebDriverManager.chromedriver().driverVersion("126.0.6478.182").setup();
+
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Users\\kuzne\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
+
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT));
     }
 }

@@ -25,7 +25,6 @@ public class FieldsOnRegistrationPageTest {
         new AuthorizationPage(driver).clickOnRegistrationLink();
     }
 
-
     @Test
     @DisplayName("Test field 'Name'")
     public void checkFieldName() {
