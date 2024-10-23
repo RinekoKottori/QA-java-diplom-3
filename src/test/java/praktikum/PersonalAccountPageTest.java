@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import praktikum.client.CheckClient;
+import praktikum.client.Client;
 import praktikum.client.ClientEnvConfig;
 import praktikum.pages.AuthorizationPage;
 import praktikum.pages.MainPage;
@@ -16,6 +17,7 @@ import praktikum.pages.PersonalAccountPage;
 public class PersonalAccountPageTest {
     private static WebDriver driver;
     Response response;
+    Client client = Client.randomClient();
 
     @Rule
     public DriverRule factory = new DriverRule();
@@ -25,7 +27,7 @@ public class PersonalAccountPageTest {
         driver = factory.getDriver();
         new PersonalAccountPage(driver).openBrowser();
         ClientEnvConfig clientEnvConfig = new ClientEnvConfig();
-        response = clientEnvConfig.registrationNewClient("atrofiya", "atrofiya@yaya.com", "krak476");
+        response = clientEnvConfig.registrationNewClient(client.getName(), client.getEmail(), client.getPassword());
     }
 
     @Test
@@ -35,8 +37,8 @@ public class PersonalAccountPageTest {
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
         mainPage.clickOnButtonSignInAccount();
-        authorizationPage.setEmail("atrofiya@yaya.com");
-        authorizationPage.setPassword("krak476");
+        authorizationPage.setEmail(client.getEmail());
+        authorizationPage.setPassword(client.getPassword());
         authorizationPage.clickOnLoginButton();
         mainPage.isMainPageOpen();
         mainPage.clickOnButtonPersonalAccount();
@@ -51,8 +53,8 @@ public class PersonalAccountPageTest {
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
         mainPage.clickOnButtonSignInAccount();
-        authorizationPage.setEmail("atrofiya@yaya.com");
-        authorizationPage.setPassword("krak476");
+        authorizationPage.setEmail(client.getEmail());
+        authorizationPage.setPassword(client.getPassword());
         authorizationPage.clickOnLoginButton();
         mainPage.clickOnButtonPersonalAccount();
         personalAccountPage.clickOnLogoButtonStellarBurger();
@@ -66,8 +68,8 @@ public class PersonalAccountPageTest {
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
         mainPage.clickOnButtonSignInAccount();
-        authorizationPage.setEmail("atrofiya@yaya.com");
-        authorizationPage.setPassword("krak476");
+        authorizationPage.setEmail(client.getEmail());
+        authorizationPage.setPassword(client.getPassword());
         authorizationPage.clickOnLoginButton();
         mainPage.clickOnButtonPersonalAccount();
         personalAccountPage.clickOnButtonConstructor();
@@ -78,7 +80,7 @@ public class PersonalAccountPageTest {
     public void tearDown() {
         CheckClient checkClient = new CheckClient();
         ClientEnvConfig clientEnvConfig = new ClientEnvConfig();
-        clientEnvConfig.authorizationClient("atrofiya@yaya.com", "krak476");
+        clientEnvConfig.authorizationClient(client.getEmail(), client.getPassword());
         String token = checkClient.getOkForAuthorizationClient(response);
         clientEnvConfig.deleteClient(token);
     }

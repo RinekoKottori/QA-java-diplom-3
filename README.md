@@ -31,7 +31,8 @@ mvn clean test -Dbrowser=chrome
 ```bash
 mvn clean test -Dbrowser=yandex
 
-mvn clean test -Dbrowser=yandex -Ddriver.version=version of yandex browser -Dwebdriver.yandex.bin=path to browser
+Для запуска в терминале Commande prompt:
+mvn clean test -Dbrowser=yandex -Ddriver.version=version of nearest chromium -Dwebdriver.yandex.bin=path to browser
 ```
 
 ## Запуск для firefox browser

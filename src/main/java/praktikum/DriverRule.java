@@ -47,10 +47,10 @@ public class DriverRule extends ExternalResource {
     }
 
     private void initYandex() {
-        WebDriverManager.chromedriver().driverVersion("126.0.6478.0").setup();
+        WebDriverManager.chromedriver().driverVersion(System.getProperty("driver.version")).setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.setBinary("C:\\Users\\kuzne\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
+        options.setBinary(System.getProperty("webdriver.yandex.bin"));
 
         driver = new ChromeDriver(options);
     }
