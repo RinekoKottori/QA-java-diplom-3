@@ -1,16 +1,17 @@
 # QA-java-diplom-3
 
 
-| Dependencies | Version   |
-|--------------|-----------|
-| Java         | 11.0.24_8 |
-| JUnit        | 4.13.1    |
-| JDK          | 11.0.24   |
-| Maven        | 11        |
-| Allure       | 2.29.0    |
-| Aspectj      | 4.13.1    |
-| Rest-assured | 5.5.0     |
-| Gson         | 2.11.0    |
+| Dependencies      | Version     |
+|-------------------|-------------|
+| Java              | 11.0.24_8   |
+| JUnit             | 4.13.1      |
+| JDK               | 11.0.24     |
+| Maven             | 11          |
+| Allure            | 2.29.0      |
+| Aspectj           | 4.13.1      |
+| Rest-assured      | 5.5.0       |
+| Gson              | 2.11.0      |
+| Webdriver manager | 5.9.2       |
 
 
 | Plugin         | Version  | configuration |
@@ -18,7 +19,7 @@
 | Maven-surefire | 3.5.0    |               |
 | Allure-maven   | 2.12.0   | 2.30.0        | 
 
-# Running the test in default browser
+# Running default tests  
 `mvn clean test`
 
 ## Запуск для chrome browser
@@ -29,4 +30,13 @@ mvn clean test -Dbrowser=chrome
 ## Запуск для yandex browser
 ```bash
 mvn clean test -Dbrowser=yandex
+
+Для запуска в терминале Commande prompt:
+mvn clean test -Dbrowser=yandex -Ddriver.version=version of nearest chromium -Dwebdriver.yandex.bin=path to browser
 ```
+
+## Запуск для firefox browser
+```bash
+mvn clean test -Dbrowser=firefox
+```
+
